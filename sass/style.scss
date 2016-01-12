@@ -1,0 +1,80 @@
+
+/*----- Variables -----*/
+$main_color: #023E54;
+$aux_color: #1A1A1A;
+$bar-color: #AD141E;
+
+body {
+  background-color:$main_color;
+  font-family: Verdana, Arial, sans-serif;
+  position:relative;
+  z-index:0;
+}
+
+/*----- Accordion -----*/
+.MyAccordion{
+  -webkit-box-sizing:border-box; 
+  -moz-box-sizing:border-box; 
+  box-sizing:border-box;
+  overflow:hidden;
+  box-shadow:0px 1px 3px rgba(0,0,0,0.25);
+  border-radius:3px;
+  background:#f7f7f7;
+
+  /*----- Section -----*/
+  .MyAccordion-section{
+    &:last-child {
+    border-bottom:none;
+    }
+
+    /*----- Section Titles -----*/
+    &.u-section-title {
+    width:100%;
+    padding:15px;
+    display:inline-block;
+    border-bottom:1px solid $aux_color;
+    background:$bar-color;
+    transition:all linear 0.15s;
+    /* Type */
+    font-size:1.200em;
+    text-shadow:0px 1px 0px $aux_color;
+    color:#fff;
+       /* pseudo selectors */ 
+      &.active, &:hover{
+      background:darken( $bar-color, 10% );
+      text-decoration:none;
+      cursor: pointer;
+      };
+    }
+  }  
+}
+
+/*----- JS-----*/
+.MyAccordion.u-js > * {
+  overflow: hidden;
+    &:not(.expanded) > *:not(h1) {
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    }
+}
+
+.MyAccordion.u-js > .expanded > *:not(h1) {
+  max-height: 10em;
+  opacity: 1;
+  visibility: visible;
+}
+
+.MyAccordion.u-js > * > h1 {
+  cursor: pointer;
+  visibility: visible;
+}
+
+.MyAccordion.u-js> * > *:not(h1) {
+  transition: max-height 1s,
+    visibility 1s,
+    margin 1s,
+    opacity 1s;
+}

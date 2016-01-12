@@ -1,0 +1,81 @@
+/*----- Variables -----*/
+/* line 7, ../sass/style.scss */
+body {
+  background-color: #023E54;
+  font-family: Verdana, Arial, sans-serif;
+  position: relative;
+  z-index: 0;
+}
+
+/*----- Accordion -----*/
+/* line 15, ../sass/style.scss */
+.MyAccordion {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background: #f7f7f7;
+  /*----- Section -----*/
+}
+/* line 25, ../sass/style.scss */
+.MyAccordion .MyAccordion-section {
+  /*----- Section Titles -----*/
+}
+/* line 26, ../sass/style.scss */
+.MyAccordion .MyAccordion-section:last-child {
+  border-bottom: none;
+}
+/* line 31, ../sass/style.scss */
+.MyAccordion .MyAccordion-section.u-section-title {
+  width: 100%;
+  padding: 15px;
+  display: inline-block;
+  border-bottom: 1px solid #1A1A1A;
+  background: #AD141E;
+  transition: all linear 0.15s;
+  /* Type */
+  font-size: 1.200em;
+  text-shadow: 0px 1px 0px #1A1A1A;
+  color: #fff;
+  /* pseudo selectors */
+}
+/* line 43, ../sass/style.scss */
+.MyAccordion .MyAccordion-section.u-section-title.active, .MyAccordion .MyAccordion-section.u-section-title:hover {
+  background: #7f0f16;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*----- JS-----*/
+/* line 53, ../sass/style.scss */
+.MyAccordion.u-js > * {
+  overflow: hidden;
+}
+/* line 55, ../sass/style.scss */
+.MyAccordion.u-js > *:not(.expanded) > *:not(h1) {
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* line 64, ../sass/style.scss */
+.MyAccordion.u-js > .expanded > *:not(h1) {
+  max-height: 10em;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 70, ../sass/style.scss */
+.MyAccordion.u-js > * > h1 {
+  cursor: pointer;
+  visibility: visible;
+}
+
+/* line 75, ../sass/style.scss */
+.MyAccordion.u-js > * > *:not(h1) {
+  transition: max-height 1s, visibility 1s, margin 1s, opacity 1s;
+}
